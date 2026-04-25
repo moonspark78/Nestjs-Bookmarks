@@ -7,14 +7,21 @@ import * as argon from 'argon2';
 @Injectable()
 export class AuthService {
     constructor(private prisma: PrismaService) {}
-    signup(dto: AuthDto) {
+    async signup(dto: AuthDto) {
         // generate the password hash
+        const hash = await argon.hash(dto.password);
         // save the new user in the database
+        const user = await this.prisma.user.create({
+            data: {
+                email: dto.email,
+                hash,
+            },
+        });
         // return the saved user
-        return { message: "I am signing up" };
+        return user;
     }
 
-    signin() {
+    async signin() {
         return { message: "I am signing in" };
     }
 
