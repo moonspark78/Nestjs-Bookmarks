@@ -16,6 +16,9 @@ export class AuthService {
                 email: dto.email,
                 hash,
             },
+            select: {
+                
+            }
         });
         // return the saved user
         return user;
