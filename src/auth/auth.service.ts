@@ -17,7 +17,7 @@ export class AuthService {
                 hash,
             },
             select: {
-                
+                id: true,
             }
         });
         // return the saved user
