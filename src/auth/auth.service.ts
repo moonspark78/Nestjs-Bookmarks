@@ -1,7 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { ForbiddenException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import type { AuthDto } from './dto';
 import * as argon from 'argon2';
+import { Prisma } from '../generated/prisma/client';
 
 
 @Injectable()
@@ -29,7 +30,12 @@ export class AuthService {
         // return the saved user
         return user;
         } catch (error) {
-            
+            if (error instanceof Prisma.PrismaClientKnownRequestError) {
+                if (error.code === 'P2002') {
+                    throw new ForbiddenException('Credentials taken');
+                }
+            }
+            throw error;
         }
     }
 
