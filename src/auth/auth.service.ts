@@ -20,6 +20,9 @@ export class AuthService {
                 id: true,
                 email: true,
                 createdAt: true,
+                updatedAt: true,
+                firstName: true,
+                lastName: true,
             }
         });
         // return the saved user
