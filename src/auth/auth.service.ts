@@ -39,7 +39,7 @@ export class AuthService {
         }
     }
 
-    async signin() {
+    async signin(dto: AuthDto) {
         // find the user by email
         //if user does not exist throw exception
         // compare the password 
