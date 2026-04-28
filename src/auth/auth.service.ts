@@ -47,6 +47,7 @@ export class AuthService {
             },
         });
         //if user does not exist throw exception
+        if (!user) throw new ForbiddenException('Credentials incorrect');
         // compare the password 
         // if password is incorrect throw exception
         // send back the user
