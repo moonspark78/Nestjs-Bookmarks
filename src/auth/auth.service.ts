@@ -41,6 +41,11 @@ export class AuthService {
 
     async signin(dto: AuthDto) {
         // find the user by email
+        const user = await this.prisma.user.findUnique({
+            where: {
+                email: dto.email,
+            },
+        });
         //if user does not exist throw exception
         // compare the password 
         // if password is incorrect throw exception
