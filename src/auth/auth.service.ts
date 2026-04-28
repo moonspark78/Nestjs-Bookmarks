@@ -40,6 +40,8 @@ export class AuthService {
     }
 
     async signin() {
+        // find the user by email
+        //if user does not exist throw exception
         return { message: "I am signing in" };
     }
 
