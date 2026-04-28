@@ -43,6 +43,7 @@ export class AuthService {
         // find the user by email
         //if user does not exist throw exception
         // compare the password 
+        // if password is incorrect throw exception
         return { message: "I am signing in" };
     }
 
