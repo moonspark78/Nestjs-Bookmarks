@@ -54,6 +54,7 @@ export class AuthService {
              dto.password
             );
         // if password is incorrect throw exception
+        if (!pwMatches) throw new ForbiddenException('Credentials incorrect');
         // send back the user
         return { message: "I am signing in" };
     }
