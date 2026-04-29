@@ -56,7 +56,9 @@ export class AuthService {
         // if password is incorrect throw exception
         if (!pwMatches) throw new ForbiddenException('Credentials incorrect');
         // send back the user
-        return { message: "I am signing in" };
+        delete user.hash;
+        return user;
+
     }
 
 }
