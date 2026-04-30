@@ -63,7 +63,7 @@ export class AuthService {
         if (!pwMatches) throw new ForbiddenException('Credentials incorrect');
         // send back the user
         const { hash: _, ...userSansHash } = user;
-        return userSansHash;
+        return this.signToken(user.id, user.email);
     }
 
     async signToken(userId: number, email: string): Promise<string> {
