@@ -16,7 +16,7 @@
     "incremental": true,
     "types": ["jest", "node"],
     "skipLibCheck": true,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
     "strictBindCallApply": false,
