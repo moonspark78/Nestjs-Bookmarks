@@ -64,4 +64,11 @@ export class AuthService {
         return userSansHash;
     }
 
+    async signToken(userId: number, email: string) {
+        const data = {
+            sub: userId,
+            email,
+        }
+    }
+
 }
